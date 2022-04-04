@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
+
+@font-face {
+  font-family: Nunito;
+  src: url(/font/Nunito.ttf);
+}
+
 @tailwind utilities;
+
+@layer base {
+  html {
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+  ::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
+
+  body {
+    font-family: 'Nunito';
+  }
+}
