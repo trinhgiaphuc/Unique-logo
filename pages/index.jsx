@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="">
       <main className="">
-        <ul className="w-screen grid grid-cols-4 grid-flow-row-dense gap-4">
+        <ul className="p-4 w-screen flex flex-col items-center justify-center md:grid grid-cols-4 grid-flow-row-dense gap-4">
           {new Array(number).fill(':))').map((_, i) => {
             let clx;
             if (i % 3 == 0) clx = 'col-span-2 row-span-2';

@@ -37,11 +37,11 @@ const Navigation = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Item 1</a>
+              <Link href="/quy-trinh-lam-viec">Quy Trình Làm Việc</Link>
             </li>
             <li tabIndex="0">
               <a className="justify-between">
-                Parent
+                Dịch vụ
                 <svg
                   className="fill-current"
                   xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +54,7 @@ const Navigation = () => {
               </a>
               <ul className="p-2">
                 <li>
-                  <a>Submenu 1</a>
+                  <Link href="/dieu-khoan-dich-vu">Điều Khoản</Link>
                 </li>
                 <li>
                   <a>Submenu 2</a>
@@ -62,10 +62,12 @@ const Navigation = () => {
               </ul>
             </li>
             <li>
-              <a>Item 3</a>
+              <Link href="/goi-thiet-ke">Gói Thiết Kế</Link>
             </li>
           </ul>
         </div>
+
+        {/* LOGO */}
         <Link href="/">
           <a className="btn btn-ghost hover:bg-transparent normal-case text-xl">
             <div className="h-full aspect-square flex justify-center"></div>

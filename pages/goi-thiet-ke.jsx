@@ -42,17 +42,17 @@ const PricingPage = () => {
               />
 
               <Card
-                bg="bg-blue-600"
-                border="border-[#dca54c]"
-                features={features.premium}
-                pack="Gói Premium"
-              />
-
-              <Card
                 bg="bg-zinc-600"
                 border="border-[#dca54c]"
                 features={features.standard}
                 pack="Gói Standard"
+              />
+
+              <Card
+                bg="bg-blue-600"
+                border="border-[#dca54c]"
+                features={features.premium}
+                pack="Gói Premium"
               />
             </div>
           </div>
@@ -104,7 +104,7 @@ const Card = ({ bg, border, pack, features }) => (
           className="inline-block px-10 py-4 border border-gray-200 hover:border-gray-100 rounded-full font-bold "
           href="#"
         >
-          Kết Nối Ngay
+          Liên Hệ Ngay
         </a>
       </div>
     </div>
