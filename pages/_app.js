@@ -1,13 +1,16 @@
 import '../styles/globals.css';
 import { ThemeProvider } from 'next-themes';
 import Layout from '../components/Layout/Layout';
+import ScrollProvider from '../lib/scrollContext';
 
 function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <ScrollProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ScrollProvider>
     </ThemeProvider>
   );
 }

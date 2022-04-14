@@ -1,40 +1,12 @@
 import * as React from 'react';
-import { useTheme } from 'next-themes';
 
-import { FiSun, FiMoon } from 'react-icons/fi';
 import Image from 'next/image';
 import Link from 'next/link';
-
-const ThemeChanger = () => {
-  const [mounted, setMounted] = React.useState(false);
-  const { theme, setTheme } = useTheme();
-  React.useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
-  return (
-    <button
-      className="p-4"
-      onClick={() => setTheme(theme === 'bumblebee' ? 'luxury' : 'bumblebee')}
-    >
-      {theme === 'bumblebee' ? (
-        <FiSun className="text-xl" />
-      ) : (
-        <FiMoon className="text-xl" />
-      )}
-    </button>
-  );
-};
+import ThemeChanger from '../ThemeChanger';
+import { useScrollContext } from '../../lib/scrollContext';
 
 const Navigation = () => {
-  const [shouldHideNav, setShouldHideNav] = React.useState(0);
-
-  const { theme } = useTheme();
-
-  React.useEffect(() => {
-    const checkScroll = () => setShouldHideNav(window.scrollY > 100);
-    window.document.addEventListener('scroll', checkScroll);
-    return () => window.document.addEventListener('scroll', checkScroll);
-  }, [shouldHideNav]);
+  const { shouldHideNav } = useScrollContext();
 
   return (
     <div
@@ -42,7 +14,7 @@ const Navigation = () => {
         shouldHideNav ? 'bg-transparent' : 'bg-base-200'
       } duration-500 hover:bg-base-200`}
     >
-      <div className="navbar-start">
+      <div className="navbar-start ml-5">
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
             <svg
@@ -96,18 +68,7 @@ const Navigation = () => {
         </div>
         <Link href="/">
           <a className="btn btn-ghost hover:bg-transparent normal-case text-xl">
-            <div className="h-full aspect-square flex justify-center">
-              <Image
-                src={`/assets/${
-                  theme === 'luxury' ? 'logo-white' : 'logo-black'
-                }.svg`}
-                alt="logo"
-                width="100%"
-                height="100%"
-                className={`rounded-full bg-base-100`}
-                priority
-              />
-            </div>
+            <div className="h-full aspect-square flex justify-center"></div>
           </a>
         </Link>
       </div>
@@ -116,11 +77,11 @@ const Navigation = () => {
         <div className="navbar-center hidden md:flex">
           <ul className="menu menu-horizontal p-0">
             <li>
-              <a>Item 1</a>
+              <Link href="/quy-trinh-lam-viec">Quy Trình Làm Việc</Link>
             </li>
             <li tabIndex="0">
               <a>
-                Parent
+                Dịch vụ
                 <svg
                   className="fill-current"
                   xmlns="http://www.w3.org/2000/svg"
@@ -133,7 +94,7 @@ const Navigation = () => {
               </a>
               <ul className="p-2">
                 <li>
-                  <a>Submenu 1</a>
+                  <Link href="/dieu-khoan-dich-vu">Điều Khoản</Link>
                 </li>
                 <li>
                   <a>Submenu 2</a>
@@ -141,7 +102,7 @@ const Navigation = () => {
               </ul>
             </li>
             <li>
-              <a>Item 3</a>
+              <Link href="/goi-thiet-ke">Gói Thiết Kế</Link>
             </li>
           </ul>
         </div>
